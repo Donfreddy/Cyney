@@ -2,9 +2,12 @@ import 'package:cyney/domain/entities/movie_result.dart';
 import 'package:meta/meta.dart';
 
 class MovieResultModel extends MovieResult {
-  MovieResultModel(
-      {int page, List<MovieModel> results, int totalPages, int totalResults})
-      : super(
+  MovieResultModel({
+    @required int page,
+    @required List<MovieModel> results,
+    @required int totalPages,
+    @required int totalResults,
+  }) : super(
           page: page,
           results: results,
           totalPages: totalPages,
@@ -59,7 +62,7 @@ class MovieModel extends Movie {
           popularity: popularity,
         );
 
-  static MovieModel fromJson(dynamic json) {
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
       id: json['id'] as int,
       backdropPath: json['backdrop_path'] as String,

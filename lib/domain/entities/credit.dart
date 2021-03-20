@@ -1,10 +1,11 @@
+import 'package:cyney/data/models/credit_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 class Credit extends Equatable {
   final int id;
-  final List<Cast> cast;
-  final List<Crew> crew;
+  final List<CastModel> cast;
+  final List<CrewModel> crew;
 
   Credit({
     @required this.id,
@@ -32,18 +33,19 @@ class Cast extends Equatable {
   final String creditId;
   final int order;
 
-  Cast(
-      {@required this.gender,
-      @required this.id,
-      @required this.knownForDepartment,
-      @required this.name,
-      @required this.originalName,
-      @required this.popularity,
-      @required this.profilePath,
-      @required this.castId,
-      @required this.character,
-      @required this.creditId,
-      @required this.order});
+  Cast({
+    @required this.gender,
+    @required this.id,
+    @required this.knownForDepartment,
+    @required this.name,
+    @required this.originalName,
+    @required this.popularity,
+    @required this.profilePath,
+    @required this.castId,
+    @required this.character,
+    @required this.creditId,
+    @required this.order,
+  });
 
   @override
   List<Object> get props {

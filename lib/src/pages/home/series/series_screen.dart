@@ -1,3 +1,4 @@
+import 'package:cyney/src/utils/app_color.dart';
 import 'package:flutter/material.dart';
 
 class SeriesScreen extends StatefulWidget {
@@ -10,11 +11,8 @@ class SeriesScreen extends StatefulWidget {
 class _SeriesScreenState extends State<SeriesScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [],
-      ),
+    return Scaffold(
+      body: Container(),
     );
   }
 }

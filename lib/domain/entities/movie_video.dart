@@ -1,9 +1,10 @@
+import 'package:cyney/data/models/movie_video_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 class MovieVideo extends Equatable {
   final int id;
-  final List<Video> results;
+  final List<VideoModel> results;
 
   MovieVideo({
     @required this.id,

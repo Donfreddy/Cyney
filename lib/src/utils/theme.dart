@@ -97,3 +97,4 @@ TextTheme textTheme(TextTheme mode, Color color) {
         fontSizeFactor: 1.0,
       );
 }
+

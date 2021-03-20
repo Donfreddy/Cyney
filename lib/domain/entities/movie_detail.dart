@@ -1,10 +1,11 @@
+import 'package:cyney/data/models/movie_detail_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 class MovieDetail extends Equatable {
   final String backdropPath;
   final dynamic budget;
-  final List<Genres> genres;
+  final List<GenresModel> genres;
   final String homepage;
   final int id;
   final String originalLanguage;
@@ -12,12 +13,12 @@ class MovieDetail extends Equatable {
   final String overview;
   final dynamic popularity;
   final String posterPath;
-  final List<ProductionCompanies> productionCompanies;
-  final List<ProductionCountries> productionCountries;
+  final List<ProductionCompaniesModel> productionCompanies;
+  final List<ProductionCountriesModel> productionCountries;
   final String releaseDate;
   final dynamic revenue;
   final int runtime;
-  final List<SpokenLanguages> spokenLanguages;
+  final List<SpokenLanguagesModel> spokenLanguages;
   final String status;
   final String tagline;
   final String title;

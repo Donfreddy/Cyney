@@ -1,10 +1,11 @@
+import 'package:cyney/data/models/movie_review_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 class MovieReview extends Equatable {
   final int id;
   final int page;
-  final List<Reviews> results;
+  final List<ReviewsModel> results;
   final int totalPages;
   final int totalResults;
 
@@ -33,7 +34,7 @@ class MovieReview extends Equatable {
 
 class Reviews extends Equatable {
   final String author;
-  final AuthorDetails authorDetails;
+  final AuthorDetailsModel authorDetails;
   final String content;
   final String createdAt;
   final String id;

@@ -1,4 +1,3 @@
-
 import 'package:cyney/domain/entities/movie_result.dart';
 import 'package:cyney/domain/repositories/movie_repository.dart';
 import 'package:cyney/src/bloc/movies_bloc/bloc.dart';
@@ -20,40 +19,41 @@ class _MoviesScreenState extends State<MoviesScreen> {
   Widget build(BuildContext context) {
     BlocProvider.of<MoviesBloc>(context)
         .add(GetMoviesEvent(type: MovieCat.Popular, currentPageIndex: 50));
-    return Stack(
-      children: [
-        BlocBuilder<MoviesBloc, MoviesState>(
-          builder: (context, state) {
-            if (state is MoviesInitial) {
-              return err.Error(
-                errorMessage: '',
-                onRetryPressed: () {},
-              );
-            }
-            if (state is MoviesLoading) {
-              return Loading();
-            }
-            if (state is MoviesLoaded) {
-              final movies = state.movieResult.results;
-              //  print("========> " + state.movieResult.props.toString());
+    return Scaffold(
+      body: Stack(
+        children: [
+          BlocBuilder<MoviesBloc, MoviesState>(
+            builder: (context, state) {
+              if (state is MoviesInitial) {
+                return Loading();
+              }
+              if (state is MoviesLoading) {
+                return Loading();
+              }
+              if (state is MoviesLoaded) {
+                final movies = state.movieResult.results;
+                //  print("========> " + state.movieResult.props.toString());
 
-              if (movies.isEmpty) {
-                return Center(
-                  child: Text('no movies'),
+                if (movies.isEmpty) {
+                  return Center(
+                    child: Text('no movies'),
+                  );
+                }
+                return ListView.builder(
+                  itemBuilder: (BuildContext context, int index) {
+                    return MovieWidget(movie: movies[index]);
+                  },
+                  itemCount: movies.length,
                 );
               }
-              return ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
-                  return MovieWidget(movie: movies[index]);
-                },
-                itemCount: movies.length,
-              );
-            }
-            return err.Error(errorMessage: '');
-          },
-        ),
-        CoverLine(),
-      ],
+              return err.Error(errorMessage: '');
+            },
+          ),
+          CoverLine(
+            alignment: Alignment.bottomCenter,
+          ),
+        ],
+      ),
     );
   }
 }

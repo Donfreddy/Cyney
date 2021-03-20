@@ -1,10 +1,11 @@
+import 'package:cyney/data/models/image_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 class MovieImage extends Equatable {
   final int id;
-  final List<Backdrops> backdrops;
-  final List<Posters> posters;
+  final List<BackdropsModel> backdrops;
+  final List<PostersModel> posters;
 
   MovieImage({
     @required this.id,
