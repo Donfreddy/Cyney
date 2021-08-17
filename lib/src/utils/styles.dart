@@ -39,6 +39,7 @@ class FontSizes {
   static double get s48 => 48.0 * scale;
 }
 
+
 //--------------------------- screen height & width ----------------------------
 
 double screenHeight(context) {

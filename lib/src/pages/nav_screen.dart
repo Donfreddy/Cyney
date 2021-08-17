@@ -4,21 +4,21 @@ import 'package:cyney/src/pages/favorite/favorite.dart';
 import 'package:cyney/src/pages/home/home.dart';
 import 'package:cyney/src/pages/search/search.dart';
 import 'package:cyney/src/pages/profile/setting.dart';
-import 'package:cyney/src/utils/app_color.dart';
 import 'package:cyney/src/utils/styles.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
-  MainScreen({Key key}) : super(key: key);
+class NavScreen extends StatefulWidget {
+  NavScreen({Key key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _NavScreenState createState() => _NavScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
-  int currentIndex = 0;
-  List<Widget> pages = [Home(), Discover(), Search(), Favorite(), Setting()];
+class _NavScreenState extends State<NavScreen> {
+  int _selectedIndex = 0;
+
+  final _screens = [Home(), Discover(), Search(), Favorite(), Setting()];
 
   @override
   Widget build(BuildContext context) {
@@ -31,41 +31,41 @@ class _MainScreenState extends State<MainScreen> {
           secondaryAnimation: secondaryAnimation,
           child: child,
         ),
-        child: pages[currentIndex],
+        child: _screens[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: bgColor,
-        selectedItemColor: red,
-        elevation: 4,
-        unselectedItemColor: gray,
-        currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 10.0,
+        unselectedFontSize: 10.0,
+        currentIndex: _selectedIndex,
+        onTap: (i) => setState(() => _selectedIndex = i),
         items: [
           BottomNavigationBarItem(
             icon: Icon(EvaIcons.homeOutline),
+            activeIcon: Icon(EvaIcons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(EvaIcons.gridOutline),
+            activeIcon: Icon(EvaIcons.grid),
             label: 'Discover',
           ),
           BottomNavigationBarItem(
             icon: Icon(EvaIcons.searchOutline),
+            activeIcon: Icon(EvaIcons.search),
             label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: Icon(EvaIcons.heartOutline),
+            activeIcon: Icon(EvaIcons.heart),
             label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Icon(EvaIcons.personOutline),
+            activeIcon: Icon(EvaIcons.person),
             label: 'Profil',
           )
         ],
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
       ),
     );
   }

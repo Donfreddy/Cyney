@@ -18,7 +18,7 @@ class GetLatestMovieEvent extends MoviesEvent {
 
 class GetMoviesEvent extends MoviesEvent {
   final MovieCat type;
-  final currentPageIndex;
+  final int currentPageIndex;
 
   const GetMoviesEvent({@required this.type, this.currentPageIndex})
       : assert(type != null),

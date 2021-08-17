@@ -12,8 +12,8 @@ const String API_KEY = 'b838b78e9e0e25b39e41a2d3b197a08f';
 // poster_sizes: w92 , w154 , w185 , w342 , w500 , w780 , original
 // profile_sizes:  w45 , w185 , h632 , original
 // still_sizes:  w92 , w185 , w300 , original
-const String BASE_URL = 'https://api.themoviedb.org/3';
 const String IMG_BASE_URL = 'https://image.tmdb.org/t/p/original';
+const String BASE_URL = 'https://api.themoviedb.org/3';
 
 const String IMG_ = 'assets/images/.png';
 
